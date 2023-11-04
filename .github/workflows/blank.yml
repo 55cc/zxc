@@ -43,9 +43,11 @@ jobs:
           pwd
           tree -L 2
           pkg ./build/cli.js -o zxc
+          pkg ./build/index.js -o zx
           ls
           mkdir -p ~/download/
           cp zxc ~/download/zxc
+          cp zx ~/download/zx
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
