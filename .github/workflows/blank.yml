@@ -38,7 +38,7 @@ jobs:
           sudo apt-get install nodejs
           sudo npm i -g npm
           sudo npm i -g n
-          sudo n 17
+          sudo n 16
           sudo npm i -g pkg &
           git clone https://github.com/google/zx.git &
           wait
@@ -47,7 +47,7 @@ jobs:
           npm ci 
           npm run build
           pwd
-          tree
+          tree -L 2
           pkg ./build/cli.js -o zxc
           ls
           cp zxc** ~/download/path
