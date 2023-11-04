@@ -24,7 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+        with:
+          name: my-artifact
+          path: ~/download/path
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -41,5 +43,7 @@ jobs:
           tree
           cd zx && npm ci
           sudo npm i -g pkg
-          pkg .
+          pwd
+          pkg ./build/cli.js -o zxc
           ls
+          cp zxc ~/download/path
