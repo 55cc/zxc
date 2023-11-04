@@ -32,13 +32,13 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          apt-get install nodejs
-          npm i -g npm
-          npm i -g n
-          n 18
+          sudo apt-get install nodejs
+          sudo npm i -g npm
+          sudo npm i -g n
+          sudo n 18
           git clone https://github.com/google/zx.git 
           tree
           cd zx && npm ci
-          npm i -g pkg
+          sudo npm i -g pkg
           pkg .
           ls
