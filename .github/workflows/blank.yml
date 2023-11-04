@@ -53,7 +53,8 @@ jobs:
           sed -i '1d' cli.js
           sed -i "s/\.\./\./g" cli.js
           cat cli.js
-          pkg cli.js
+          
+          pkg -t node17-linux-x64 cli.js
           # pkg index.js
           # chmod +x zx zxc || echo "0"
           # ./zx -h || echo "1"
