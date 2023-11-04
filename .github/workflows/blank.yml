@@ -43,6 +43,8 @@ jobs:
           pwd
           tree -L 2
           cd ./build/
+          ##  ,"type": "module"
+          echo '{"name": "zx",  "version": "7.2.3",  "description": "A tool for writing better scripts" }' > package.json
           pkg cli.js -o zxc
           pkg index.js -o zx
           chmod +x zx zxc
