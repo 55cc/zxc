@@ -51,9 +51,9 @@ jobs:
           cat  package.json
           pkg cli.js
           pkg index.js
-          chmod +x zx zxc
-          ./zx -h || echo "1"
-          ./zxc -h || echo "2"
+          # chmod +x zx zxc || echo "0"
+          # ./zx -h || echo "1"
+          # ./zxc -h || echo "2"
           ls
           cd ../
           
