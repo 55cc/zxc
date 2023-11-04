@@ -42,8 +42,12 @@ jobs:
           npm run build
           pwd
           tree -L 2
-          pkg ./build/cli.js -o zxc
-          pkg ./build/index.js -o zx
+          cd ./build/
+          pkg cli.js -o zxc
+          pkg index.js -o zx
+          chmod +x zx zxc
+          zx -h || echo "1"
+          zxc -h || echo "2"
           ls
           mkdir -p ~/download/
           cp zxc ~/download/zxc
