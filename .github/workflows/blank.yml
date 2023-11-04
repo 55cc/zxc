@@ -41,8 +41,9 @@ jobs:
           sudo n 18
           git clone https://github.com/google/zx.git 
           tree
-          cd zx && npm ci
-          sudo npm i -g pkg
+          cd zx && npm ci && npm run build &
+          sudo npm i -g pkg &
+          wait
           pwd
           pkg ./build/cli.js -o zxc
           ls
