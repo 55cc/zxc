@@ -23,7 +23,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: git clone https://github.com/google/zx.git && cd zx && npm ci
+    - run: git clone https://github.com/google/zx.git 
+    - run: tree
+    - run: cd zx && npm ci
     - run: npm i -g pkg
     - run: pkg .
     - run: ls
