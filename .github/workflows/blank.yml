@@ -41,6 +41,7 @@ jobs:
           npm ci 
           npm run build
           pwd
+          rm -rf package.json  package-lock.json 
           
       - name: PKG
         run: |
@@ -49,11 +50,15 @@ jobs:
           cd ./zx/build/
           echo '{"name": "zx",  "version": "7.2.3",  "description": "A tool for writing better scripts" ,"type": "module"}' > package.json
           cat  package.json
+          sed -i '1d' cli.js
+          sed -i 's/.././g' cli.js
+          cat cli.js
           pkg cli.js
-          pkg index.js
+          # pkg index.js
           # chmod +x zx zxc || echo "0"
           # ./zx -h || echo "1"
           # ./zxc -h || echo "2"
+          
           ls
           cd ../
           
