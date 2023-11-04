@@ -46,8 +46,8 @@ jobs:
           pkg cli.js -o zxc
           pkg index.js -o zx
           chmod +x zx zxc
-          zx -h || echo "1"
-          zxc -h || echo "2"
+          ./zx -h || echo "1"
+          ./zxc -h || echo "2"
           ls
           mkdir -p ~/download/
           cp zxc ~/download/zxc
