@@ -51,14 +51,15 @@ jobs:
           echo '{"name": "zx",  "version": "7.2.3",  "description": "A tool for writing better scripts" ,"type": "module"}' > package.json
           cat  package.json
           sed -i '1d' cli.js
-          sed -i 's/.././g' cli.js
+          sed -i "s/\.\./\./g" cli.js
           cat cli.js
           pkg cli.js
           # pkg index.js
           # chmod +x zx zxc || echo "0"
           # ./zx -h || echo "1"
           # ./zxc -h || echo "2"
-          
+          chmod +x cli-linux
+          ./cli-linux -h || echo "1"
           ls
           cd ../
           
