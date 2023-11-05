@@ -36,7 +36,7 @@ jobs:
           sudo npm i -g pkg &
           git clone https://github.com/google/zx.git &
           wait
-          cd zx 
+          cd zx
           ls
           npm ci 
           npm run build
@@ -50,7 +50,8 @@ jobs:
           cd ./zx/build/
           echo '{"name": "zx",  "version": "7.2.3",  "description": "A tool for writing better scripts" ,"type": "module"}' > package.json
           cat  package.json
-          sed -i '1d' cli.js
+          # sed -i '1d' cli.js
+          sed -i "s/'use strict'/&;var navigator={};/" ./cli.js
           sed -i "s/\.\./\./g" cli.js
           cat cli.js
           
