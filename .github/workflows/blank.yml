@@ -32,43 +32,25 @@ jobs:
           sudo apt-get install nodejs
           sudo npm i -g npm
           sudo npm i -g n
-          sudo n 21
-          sudo npm i -g pkg &
-          git clone https://github.com/google/zx.git &
-          wait
-          cd zx 
-          ls
-          npm ci 
-          npm run build
-          pwd
-          rm -rf package.json  package-lock.json 
+          sudo n 16
+          sudo npm i -g pkg
+          
+          
           
       - name: PKG
         run: |
           pwd
+          
+          mv cli.js zx.js
+          pkg zx.js --out-path ./dist
           tree -L 2
-          cd ./zx/build/
-          echo '{"name": "zx",  "version": "7.2.3",  "description": "A tool for writing better scripts" ,"type": "module"}' > package.json
-          cat  package.json
-          sed -i '1d' cli.js
-          sed -i "s/\.\./\./g" cli.js
-          cat cli.js
+
+          chmod +x ./dist/*-linux
+          ./dist/zx-linux -h || echo "1"
           
-          pkg -t node16-linux-x64 cli.js
-          # pkg index.js
-          # chmod +x zx zxc || echo "0"
-          # ./zx -h || echo "1"
-          # ./zxc -h || echo "2"
-          chmod +x cli-linux
-          ./cli-linux -h || echo "1"
-          ls
-          cd ../
-          
-          mkdir -p ~/download/
-          cp -r ./build/ ~/download/
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
           name: zxc
-          path: ~/download/
+          path: ~/dist/
           retention-days: 5
