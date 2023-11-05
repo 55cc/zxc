@@ -56,13 +56,14 @@ jobs:
           cat cli.js
           
           pkg -t node16-linux-x64 cli.js
+          ls
           # pkg index.js
           # chmod +x zx zxc || echo "0"
           # ./zx -h || echo "1"
           # ./zxc -h || echo "2"
-          chmod +x cli-linux
+          chmod +x cli-linux cli || echo "+x error"
           ./cli-linux -h || echo "1"
-          ls
+          ./cli -h || echo "2"
           cd ../
           
           mkdir -p ~/download/
